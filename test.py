@@ -223,7 +223,7 @@ def test(data,
             f = save_dir / f'test_batch{batch_i}_labels.jpg'  # filename
             plot_images(img, targets, paths, f, names)  # labels
             f = save_dir / f'test_batch{batch_i}_pred.jpg'
-            plot_images(img, output_to_target(output, width, height), paths, f, names)  # predictions
+#             plot_images(img, output_to_target(output, width, height), paths, f, names)  # predictions
 
     # Compute statistics
     stats = [np.concatenate(x, 0) for x in zip(*stats)]  # to numpy
@@ -236,9 +236,9 @@ def test(data,
         nt = torch.zeros(1)
 
     # W&B logging
-    if plots and wandb:
-        wandb.log({"Images": wandb_images})
-        wandb.log({"Validation": [wandb.Image(str(x), caption=x.name) for x in sorted(save_dir.glob('test*.jpg'))]})
+#     if plots and wandb:
+#         wandb.log({"Images": wandb_images})
+#         wandb.log({"Validation": [wandb.Image(str(x), caption=x.name) for x in sorted(save_dir.glob('test*.jpg'))]})
 
     # Print results
     pf = '%20s' + '%12.3g' * 6  # print format
